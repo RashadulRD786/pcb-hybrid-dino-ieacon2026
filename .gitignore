@@ -1,20 +1,13 @@
-# Dataset
+# Dataset — never commit
 data/
 PCB_DATASET/
 
-# Large output files
-ieacon_pcb_hybrid_dino/results/pixel_maps/
+# Large numpy files — never commit
 *.npy
-*.log
+ieacon_pcb_hybrid_dino/results/pixel_maps/
 
-# Keep small result files
-!ieacon_pcb_hybrid_dino/results/summary_overall.json
-!ieacon_pcb_hybrid_dino/results/per_image_metrics.csv
-!ieacon_pcb_hybrid_dino/results/class_summary.csv
-!ieacon_pcb_hybrid_dino/results/board_summary.csv
-!ieacon_pcb_hybrid_dino/results/fold_summary.csv
-!ieacon_pcb_hybrid_dino/results/paired_stats.json
-!ieacon_pcb_hybrid_dino/results/bootstrap_ci_ap.json
+# Logs
+*.log
 
 # Python
 __pycache__/
