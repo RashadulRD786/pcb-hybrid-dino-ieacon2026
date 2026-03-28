@@ -1,0 +1,54 @@
+{
+  "ap": [
+    {
+      "comparison": "hybrid_vs_pixel",
+      "mean_diff": 0.07785705395530694,
+      "median_diff": 0.06685357214490073,
+      "improved_fraction": 0.7864357864357865,
+      "t_pvalue": 2.868748449659459e-71,
+      "wilcoxon_pvalue": 4.793721922569873e-63
+    },
+    {
+      "comparison": "hybrid_vs_dino",
+      "mean_diff": 0.20600465242684945,
+      "median_diff": 0.18528731349129024,
+      "improved_fraction": 0.9206349206349206,
+      "t_pvalue": 1.7387832423195122e-138,
+      "wilcoxon_pvalue": 5.415514250566501e-102
+    },
+    {
+      "comparison": "pixel_vs_dino",
+      "mean_diff": 0.12814759847154253,
+      "median_diff": 0.10893611275369697,
+      "improved_fraction": 0.6911976911976911,
+      "t_pvalue": 1.1503372715964288e-39,
+      "wilcoxon_pvalue": 2.6433214635264386e-35
+    }
+  ],
+  "auc": [
+    {
+      "comparison": "hybrid_vs_pixel",
+      "mean_diff": 0.10250552336393641,
+      "median_diff": 0.09543524416135885,
+      "improved_fraction": 0.948051948051948,
+      "t_pvalue": 2.170907678386861e-165,
+      "wilcoxon_pvalue": 1.4868294285141073e-112
+    },
+    {
+      "comparison": "hybrid_vs_dino",
+      "mean_diff": -0.03072663741378374,
+      "median_diff": -0.019215254858819253,
+      "improved_fraction": 0.329004329004329,
+      "t_pvalue": 3.708887389810574e-27,
+      "wilcoxon_pvalue": 1.4222230119912982e-28
+    },
+    {
+      "comparison": "pixel_vs_dino",
+      "mean_diff": -0.13323216077772015,
+      "median_diff": -0.13575724061657568,
+      "improved_fraction": 0.10678210678210678,
+      "t_pvalue": 7.554595481349743e-137,
+      "wilcoxon_pvalue": 5.4650363050444286e-96
+    }
+  ]
+}

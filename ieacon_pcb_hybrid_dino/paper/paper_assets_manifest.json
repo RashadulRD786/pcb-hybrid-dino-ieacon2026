@@ -1,0 +1,40 @@
+{
+  "display_classes": [
+    "Missing_hole",
+    "Mouse_bite",
+    "Open_circuit",
+    "Short"
+  ],
+  "qualitative_selection_rule": "Stable descending sort by hybrid_pixel_dino_ap; first sample per displayed class.",
+  "selected_samples": [
+    {
+      "class": "Open_circuit",
+      "sample_id": "01_open_circuit_09",
+      "hybrid_ap": 1.0
+    },
+    {
+      "class": "Mouse_bite",
+      "sample_id": "09_mouse_bite_01",
+      "hybrid_ap": 0.9757575757575758
+    },
+    {
+      "class": "Missing_hole",
+      "sample_id": "04_missing_hole_10",
+      "hybrid_ap": 0.9
+    },
+    {
+      "class": "Short",
+      "sample_id": "06_short_08",
+      "hybrid_ap": 0.7711323042427898
+    }
+  ],
+  "paired_stats_file": "/home/rashadulnafisriyad/pcb_research/ieacon_pcb_hybrid_dino/results/paired_stats.json",
+  "bootstrap_ci_file": "/home/rashadulnafisriyad/pcb_research/ieacon_pcb_hybrid_dino/results/bootstrap_ci_ap.json",
+  "paper_figures": [
+    "/home/rashadulnafisriyad/pcb_research/ieacon_pcb_hybrid_dino/paper/method_pipeline.png",
+    "/home/rashadulnafisriyad/pcb_research/ieacon_pcb_hybrid_dino/paper/qualitative_grid.png",
+    "/home/rashadulnafisriyad/pcb_research/ieacon_pcb_hybrid_dino/paper/boxplot_ap.png",
+    "/home/rashadulnafisriyad/pcb_research/ieacon_pcb_hybrid_dino/paper/class_mean_ap.png",
+    "/home/rashadulnafisriyad/pcb_research/ieacon_pcb_hybrid_dino/paper/alpha_by_board.png"
+  ]
+}
