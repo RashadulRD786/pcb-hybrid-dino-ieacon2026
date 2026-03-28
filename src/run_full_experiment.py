@@ -23,7 +23,7 @@ from PIL import Image
 from sklearn.metrics import average_precision_score, roc_auc_score
 
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[1]
 PCB_ROOT = ROOT / "data" / "PCB_DATASET"
 PROJECT_DIR = ROOT / "ieacon_pcb_hybrid_dino"
 RESULTS_DIR = PROJECT_DIR / "results"
