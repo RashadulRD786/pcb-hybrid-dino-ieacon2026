@@ -8,7 +8,7 @@
 [![DINOv2](https://img.shields.io/badge/Backbone-DINOv2%20ViT--B/14-purple?style=flat-square)](https://github.com/facebookresearch/dinov2)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
-**Rashadul Nafis Riyad · Gianmarco Goycochea Casas · Zool Hilmi Ismail**
+**Rashadul Nafis Riyad · Syed Abrar Rafid · Gianmarco Goycochea Casas · Zool Hilmi Ismail**
 
 *7th IEEE Industrial Electronics and Applications Conference (IEACon 2026)*
 *JW Marriott Hotel, Kuala Lumpur, Malaysia · September 7–8, 2026*
