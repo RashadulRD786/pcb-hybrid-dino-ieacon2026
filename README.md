@@ -158,14 +158,20 @@ pcb_research/
 │   │   └── fixed_alpha_ablation.json  # Fixed α=0.75 ablation results
 │   │
 │   ├── paper/
-│   │   ├── method_pipeline.png        # Figure 1 — Pipeline overview
+│   │   ├── figure1_pipeline_published.png  # Figure 1 as printed in the paper (manually composed)
+│   │   ├── method_pipeline.png        # Auto-generated pipeline diagram (same content as Fig. 1,
+│   │   │                              #   produced by prepare_paper_assets.py — not pixel-identical
+│   │   │                              #   to the published figure, see note below)
 │   │   ├── boxplot_ap.png             # Figure 2 — AP distributions
 │   │   └── qualitative_grid.png       # Figure 3 — Qualitative comparison
 │   │
 │   └── figures/                       # Additional analysis figures
 │       ├── alpha_by_board.png         # Selected α per held-out board
 │       ├── class_mean_ap.png          # Class-wise AP bar chart
-│       └── board_mean_ap.png          # Board-wise AP bar chart
+│       ├── board_mean_ap.png          # Board-wise AP bar chart
+│       ├── boxplot_auc.png            # AUC-distribution counterpart to Figure 2
+│       ├── *_qualitative.png          # Per-sample 5-panel qualitative panels (one per class)
+│       └── dataset_sample_pair_*.png  # Golden-reference vs. labeled defective-image examples
 │
 ├── data/                              # Dataset (not tracked — see below)
 │   └── PCB_DATASET/
@@ -173,10 +179,11 @@ pcb_research/
 │       ├── Annotations/               # Pascal VOC bounding boxes
 │       └── PCB_USED/                  # 10 golden reference boards (.JPG)
 │
-├── notebooks/                         # Exploration notebooks
 ├── requirements.txt
 └── README.md
 ```
+
+> **Note on Figure 1:** the published paper's Fig. 1 (`figure1_pipeline_published.png`) was composed manually and is provided as a static asset. Running `prepare_paper_assets.py` regenerates `method_pipeline.png`, a plain box-and-arrow diagram covering the same pipeline stages, generated programmatically from the code paths that produced every other figure — it is not a pixel-identical reproduction of the published figure.
 
 ---
 
@@ -374,6 +381,7 @@ Methods such as PatchCore and PaDiM learn normality from a corpus of defect-free
   title     = {Gradient-Free Hybrid Fusion for Reference-Guided
                {PCB} Defect Localization},
   author    = {Riyad, Rashadul Nafis and
+               Rafid, Syed Abrar and
                Goycochea Casas, Gianmarco and
                Ismail, Zool Hilmi},
   booktitle = {Proceedings of the 7th IEEE Industrial Electronics
