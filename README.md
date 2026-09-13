@@ -409,10 +409,10 @@ Methods such as PatchCore and PaDiM learn normality from a corpus of defect-free
 
 **Corresponding Author**
 
-**Prof. Zool Hilmi Ismail**
-Center for Artificial Intelligence and Robotics (CAIRO)
+**Rashadul Nafis Riyad**
+Software Engineering Program
 Universiti Teknologi Malaysia
-Email: zool@utm.my | ORCID: [0000-0002-5918-636X](https://orcid.org/0000-0002-5918-636X)
+Email: nafisrashadul@gmail.com
 
 ---
 
