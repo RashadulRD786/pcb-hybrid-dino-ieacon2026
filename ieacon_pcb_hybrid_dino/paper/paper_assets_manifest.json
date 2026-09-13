@@ -5,27 +5,35 @@
     "Open_circuit",
     "Short"
   ],
-  "qualitative_selection_rule": "Stable descending sort by hybrid_pixel_dino_ap; first sample per displayed class.",
+  "qualitative_selection_rule": "Stable descending sort by ap_delta (hybrid AP minus pixel AP), with hybrid AP as tiebreaker; first sample per displayed class.",
   "selected_samples": [
     {
+      "class": "Missing_hole",
+      "sample_id": "04_missing_hole_18",
+      "hybrid_ap": 0.8268037518037518,
+      "pixel_ap": 0.3470923760936182,
+      "ap_delta": 0.47971137571013356
+    },
+    {
       "class": "Open_circuit",
-      "sample_id": "01_open_circuit_09",
-      "hybrid_ap": 1.0
+      "sample_id": "12_open_circuit_06",
+      "hybrid_ap": 0.9564102564102565,
+      "pixel_ap": 0.5599206925187996,
+      "ap_delta": 0.39648956389145684
     },
     {
       "class": "Mouse_bite",
-      "sample_id": "09_mouse_bite_01",
-      "hybrid_ap": 0.9757575757575758
-    },
-    {
-      "class": "Missing_hole",
-      "sample_id": "04_missing_hole_10",
-      "hybrid_ap": 0.9
+      "sample_id": "09_mouse_bite_02",
+      "hybrid_ap": 0.7930700499573049,
+      "pixel_ap": 0.422153003958608,
+      "ap_delta": 0.3709170459986969
     },
     {
       "class": "Short",
-      "sample_id": "06_short_08",
-      "hybrid_ap": 0.7711323042427898
+      "sample_id": "04_short_07",
+      "hybrid_ap": 0.6908249767148331,
+      "pixel_ap": 0.33069523807039,
+      "ap_delta": 0.36012973864444314
     }
   ],
   "paired_stats_file": "/home/rashadulnafisriyad/pcb_research/ieacon_pcb_hybrid_dino/results/paired_stats.json",

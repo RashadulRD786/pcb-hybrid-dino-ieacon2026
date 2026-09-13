@@ -168,9 +168,9 @@ def draw_boxes_on_image(img: Image.Image, boxes, orig_w: int, orig_h: int, color
 
 
 def make_overlay(test_img: Image.Image, score_map: np.ndarray, boxes, orig_w: int, orig_h: int):
-    heat = (colormaps["viridis"](minmax_map(score_map))[..., :3] * 255).astype(np.uint8)
+    heat = (colormaps["inferno"](minmax_map(score_map))[..., :3] * 255).astype(np.uint8)
     heat_img = Image.fromarray(heat).resize(test_img.size, Image.Resampling.BILINEAR)
-    overlay = Image.blend(test_img, heat_img, alpha=0.43)
+    overlay = Image.blend(test_img, heat_img, alpha=0.6)
     return draw_boxes_on_image(overlay, boxes, orig_w, orig_h)
 
 
@@ -279,7 +279,16 @@ def make_publication_boxplot(df: pd.DataFrame):
 
 
 def choose_qualitative_samples(df: pd.DataFrame):
-    ranked = df.sort_values("hybrid_pixel_dino_ap", ascending=False, kind="mergesort")
+    # Ranked by hybrid-over-pixel AP gain rather than raw hybrid AP: the
+    # highest-AP sample per class is often one where every method already
+    # does well, which doesn't visually demonstrate what the hybrid adds.
+    df = df.copy()
+    df["ap_delta"] = df["hybrid_pixel_dino_ap"] - df["pixel_diff_ap"]
+    ranked = df.sort_values(
+        ["ap_delta", "hybrid_pixel_dino_ap"],
+        ascending=[False, False],
+        kind="mergesort",
+    )
     chosen = []
     used = set()
     for _, row in ranked.iterrows():
@@ -290,6 +299,8 @@ def choose_qualitative_samples(df: pd.DataFrame):
                     "class": cls,
                     "sample_id": row["sample_id"],
                     "hybrid_ap": float(row["hybrid_pixel_dino_ap"]),
+                    "pixel_ap": float(row["pixel_diff_ap"]),
+                    "ap_delta": float(row["ap_delta"]),
                 }
             )
             used.add(cls)
@@ -359,8 +370,9 @@ def make_qualitative_grid(chosen):
         sample_label = sample_id.replace("_", " ")
         row_header = (
             f"{class_label}\n"
-            f"Representative sample: {sample_label}\n"
-            f"Hybrid AP = {item['hybrid_ap']:.3f}"
+            f"Sample: {sample_label}\n"
+            f"Pixel AP = {item['pixel_ap']:.3f}  →  Hybrid AP = {item['hybrid_ap']:.3f}\n"
+            f"Δ AP = +{item['ap_delta']:.3f}"
         )
         axes[row_idx, 0].text(
             -0.18,
@@ -369,7 +381,7 @@ def make_qualitative_grid(chosen):
             transform=axes[row_idx, 0].transAxes,
             ha="right",
             va="center",
-            fontsize=12.5,
+            fontsize=11.5,
             fontweight="bold",
         )
 
@@ -411,7 +423,10 @@ def main():
 
     manifest = {
         "display_classes": DISPLAY_CLASSES,
-        "qualitative_selection_rule": "Stable descending sort by hybrid_pixel_dino_ap; first sample per displayed class.",
+        "qualitative_selection_rule": (
+            "Stable descending sort by ap_delta (hybrid AP minus pixel AP), "
+            "with hybrid AP as tiebreaker; first sample per displayed class."
+        ),
         "selected_samples": chosen,
         "paired_stats_file": str(RESULTS_DIR / "paired_stats.json"),
         "bootstrap_ci_file": str(RESULTS_DIR / "bootstrap_ci_ap.json"),
